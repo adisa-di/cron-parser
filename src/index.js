@@ -44,7 +44,7 @@ function parseInput(input, unit) {
 
 // processes args and prints out answer
 function getArgs() {
-  return process.argv.slice(2)[0] || " ";
+  return process.argv.slice(2)[0];
 }
 
 function main() {
@@ -53,16 +53,20 @@ function main() {
   const SPACES = 15;
 
   let output = "";
+
   for (let i = 0; i < argsOrder.length; i++) {
     const unit = argsOrder[i];
     const rowLabel = unit.padEnd(SPACES, " ");
     output += `${rowLabel}${parseInput(args[i], unit)}\n`;
   }
   output += `${"command".padEnd(SPACES, " ")}${args[5]}`
+
   return output;
 }
 
-console.log(main());
+if (!!getArgs()) {
+  console.log(main());
+}
 
 module.exports = {
   parseInput,
