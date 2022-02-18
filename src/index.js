@@ -52,13 +52,18 @@ function main() {
   const argsOrder = [MINUTE, HOUR, DAYOFMONTH, MONTH, DAYOFWEEK];
   const SPACES = 15;
 
+  let output = "";
   for (let i = 0; i < argsOrder.length; i++) {
     const unit = argsOrder[i];
     const rowLabel = unit.padEnd(SPACES, " ");
-    console.log(`${rowLabel}${parseInput(args[i], unit)}`);
+    output += `${rowLabel}${parseInput(args[i], unit)}\n`;
   }
-  console.log(`${"command".padEnd(SPACES, " ")}${args[5]}`);
+  output += `${"command".padEnd(SPACES, " ")}${args[5]}`
+  return output;
 }
+
+const output = main();
+console.log(output);
 
 module.exports = {
   parseInput,

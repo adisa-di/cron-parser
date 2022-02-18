@@ -43,7 +43,6 @@ class StepChar extends SpecialChar {
     for (let i=start; i <= stop; i += value) {
       output.push(i);
     }
-
     return output.join(" ");
   }
 }
@@ -67,11 +66,9 @@ class AnyChar extends SpecialChar {
     for (let i=start; i <= stop; i+=1) {
       output.push(i);
     }
-
     return output.join(" ");
   }
 }
-
 class RangeChar extends SpecialChar {
 
   from = 0;
@@ -95,7 +92,6 @@ class RangeChar extends SpecialChar {
     for (let i = start; i <= stop; i += 1) {
       output.push(i);
     }
-    
     return output.join(" ");
   }
 }
