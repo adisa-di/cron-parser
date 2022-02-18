@@ -4,11 +4,14 @@
   "description": "cron-parser-deliveroo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "adisa",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }

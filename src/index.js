@@ -20,7 +20,6 @@ const specialChars = [new StepChar(), new AnyChar(), new RangeChar()];
 
 // check if any special characters exists
 function parseInput(input, unit) {
-
   let reg;
   for (let i = 0; i < specialChars.length; i++) {
     if (specialChars[i].contains(input)) {
@@ -43,20 +42,26 @@ function parseInput(input, unit) {
   }
 }
 
-
 // processes args and prints out answer
 function getArgs() {
-  return process.argv.slice(2)[0];
+  return process.argv.slice(2)[0] || " ";
 }
 
-const args = getArgs().split(" ");
-const argsOrder = [MINUTE, HOUR, DAYOFMONTH, MONTH, DAYOFWEEK];
-const SPACES = 15;
+function main() {
+  const args = getArgs().split(" ");
+  const argsOrder = [MINUTE, HOUR, DAYOFMONTH, MONTH, DAYOFWEEK];
+  const SPACES = 15;
 
-for (let i = 0; i < argsOrder.length; i++) {
-  const unit = argsOrder[i];
-  const rowLabel = unit.padEnd(SPACES, " ");
-  console.log(`${rowLabel}${parseInput(args[i], unit)}`);
+  for (let i = 0; i < argsOrder.length; i++) {
+    const unit = argsOrder[i];
+    const rowLabel = unit.padEnd(SPACES, " ");
+    console.log(`${rowLabel}${parseInput(args[i], unit)}`);
+  }
+  console.log(`${"command".padEnd(SPACES, " ")}${args[5]}`);
 }
 
-console.log(`${"command".padEnd(SPACES, " ")}${args[5]}`);
+module.exports = {
+  parseInput,
+  getArgs,
+  main
+}
