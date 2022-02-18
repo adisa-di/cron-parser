@@ -5,7 +5,8 @@ const {
   Range,
   StepChar,
   AnyChar,
-  RangeChar
+  RangeChar,
+  ListChar
 } = require('./characters');
 
 const {
@@ -16,7 +17,7 @@ const {
   DAYOFWEEK
 } = require('./time');
 
-const specialChars = [new StepChar(), new AnyChar(), new RangeChar()];
+const specialChars = [new ListChar(), new StepChar(), new AnyChar(), new RangeChar()];
 
 // check if any special characters exists
 function parseInput(input, unit) {
@@ -28,7 +29,11 @@ function parseInput(input, unit) {
     }
   }
 
+  console.log(reg);
+
   switch(reg.constructor.name) {
+    case "ListChar":
+      return reg.process(input);
     case "StepChar":
       const value = reg.getValue(input);
       return reg.process(value, unit);

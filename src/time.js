@@ -12,6 +12,15 @@ class TimeRange {
     this.from = from;
     this.to = to;
   }
+
+  /**
+   * TODO: Error handling for inputs from the command line
+   * @param {*} input 
+   */
+  checkRange(input) {
+
+  }
+  
 }
 
 // map of ranges for each unit

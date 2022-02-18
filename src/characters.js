@@ -1,9 +1,10 @@
 const { ranges, MINUTE } = require("./time");
 
 // enums for special chars
-const Step = Symbol("StepChar");
-const Any = Symbol("AnyChar");
-const Range = Symbol("RangeChar");
+const Step = Symbol("StepChar"); // */
+const Any = Symbol("AnyChar"); // *
+const Range = Symbol("RangeChar"); // -
+const List = Symbol("ListChar"); // ,
 
 class SpecialChar {
   constructor(name, regex) {
@@ -21,8 +22,6 @@ class SpecialChar {
     return !!this.parse(arg);
   }
 }
-
-// missing , operator 
 
 class StepChar extends SpecialChar {
   constructor() {
@@ -50,10 +49,6 @@ class StepChar extends SpecialChar {
 class AnyChar extends SpecialChar {
   constructor() {
     super(Any, "\\*");
-  }
-
-  getValue() {
-    return -1;
   }
 
   process(timeUnit) {
@@ -96,6 +91,17 @@ class RangeChar extends SpecialChar {
   }
 }
 
+class ListChar extends SpecialChar {
+
+  constructor() {
+    super(List, "\\,");
+  }
+
+  process(value) {
+    return value.split(",").join(" ");
+  }
+}
+
 module.exports = {
   // enums
   Step,
@@ -105,5 +111,6 @@ module.exports = {
   // classes
   StepChar,
   AnyChar,
-  RangeChar
+  RangeChar,
+  ListChar
 }

@@ -2,7 +2,6 @@ const { parseInput } = require('../src/index');
 const { MINUTE, HOUR, DAYOFMONTH, MONTH, DAYOFWEEK } = require('../src/time');
 
 describe("Parsing input with time unit", () => {
-
   // step intervals
   test('*/15 (minute) should return every 15 minute interval', () => {
     const input = "*/15";
