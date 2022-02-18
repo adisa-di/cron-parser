@@ -17,9 +17,7 @@ class TimeRange {
    * TODO: Error handling for inputs from the command line
    * @param {*} input 
    */
-  checkRange(input) {
-
-  }
+  checkRange(input) { }
   
 }
 

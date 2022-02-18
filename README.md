@@ -12,3 +12,8 @@ To run the unit test
 
 1. cd to root directory
 2. `npm run test`
+
+Additional features to add in the future:
+
+1. Error handling
+2. Consider edge cases

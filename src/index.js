@@ -29,8 +29,6 @@ function parseInput(input, unit) {
     }
   }
 
-  console.log(reg);
-
   switch(reg.constructor.name) {
     case "ListChar":
       return reg.process(input);
