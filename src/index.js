@@ -62,8 +62,7 @@ function main() {
   return output;
 }
 
-const output = main();
-console.log(output);
+console.log(main());
 
 module.exports = {
   parseInput,
